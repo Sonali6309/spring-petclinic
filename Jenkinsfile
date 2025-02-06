@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "spring-petclinic-app"
         IMAGE_TAG = "latest"
-        DOCKER_REGISTRY = "https://hub.docker.com/u/sonali5672"
+        DOCKER_REGISTRY = "sonali5672"
     }
 
     stages {
