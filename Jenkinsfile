@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        //Specify maven installation
+        maven 'Maven'
+    }
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
