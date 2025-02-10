@@ -3,7 +3,7 @@ pipeline {
     tools {
         //Specify maven installation
         maven 'Maven'
-        docker 'Docker'
+        dockerTool 'Docker'
     }
 
     environment {
