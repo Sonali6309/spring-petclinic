@@ -41,26 +41,12 @@ pipeline {
                 }
             }
         }
-
-        // stage('Deploy Application') {
-        //     steps {
-        //         script {
-        //             // Stop any existing container
-        //             sh "docker stop spring-petclinic-container || true"
-        //             sh "docker rm spring-petclinic-container || true"
-                    
-        //             // Run a new container
-        //             sh """
-        //             docker run --name spring-petclinic-container -d -p 8082:8082
-        //             """
-        //         }
-        //     }
-        // }
-    }
-
-    post {
+        post {
         always {
             cleanWs()
         }
     }
-}
+    }
+
+    
+
