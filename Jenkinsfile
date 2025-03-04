@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    tools {
-        //Specify maven installation
-        maven 'Maven'
-    }
-
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
         DOCKER_IMAGE = "sonali5672/spring-petclinic"
@@ -43,28 +38,7 @@ pipeline {
                 }
             }
         }
-         stage('Update Kubernetes Manifests') {
-            steps {
-                script {
-                    // Clone the GitOps repository
-                    sh """
-                        git clone ${GIT_OPS_REPO} k8s-manifests
-                        cd k8s-manifests
-                        sed -i 's|image: ${DOCKER_IMAGE}:.*|image: ${DOCKER_IMAGE}:${DOCKER_TAG}|' k8s/deployment.yaml
-                        git config user.email "siddasonali219@gmail.com"
-                        git config user.name "Sonali6309"
-                        git add k8s/deployment.yaml
-                        git commit -m "Update image to ${DOCKER_TAG}"
-                        git push origin main
-                    """
-                }
-            }
-        }
-        post {
-        always {
-            cleanWs()
-        }
-    }
+
     }
 
     
