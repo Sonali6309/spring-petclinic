@@ -4,7 +4,6 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
         DOCKER_IMAGE = "sonali5672/spring-petclinic"
         DOCKER_TAG = "v${BUILD_NUMBER}"
-        GIT_OPS_REPO = "https://github.com/Sonali6309/spring-petclinic-k8s.git"
     }
 
     stages {
